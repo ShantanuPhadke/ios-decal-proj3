@@ -21,6 +21,8 @@ class Photo {
     /* The date when the photographer posted the file. */
     var date : String!
     
+    var liked: Bool! = false
+    
     /* Parses a NSDictionary and creates a photo object. */
     init (data: NSDictionary) {
         // FILL ME IN

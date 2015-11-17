@@ -23,7 +23,11 @@ class MyImageViewController: UIViewController{
     override func viewDidLoad(){
         super.viewDidLoad()
         makeView()
-        likeButton.setTitle("💙",forState: UIControlState.Normal)
+        if !photo.liked{
+            likeButton.setTitle("💙",forState: UIControlState.Normal)
+        }else{
+            likeButton.setTitle("❤️", forState: UIControlState.Normal)
+        }
         
         
     }
@@ -53,13 +57,9 @@ class MyImageViewController: UIViewController{
         if likeButton.currentTitle == "💙" {
             likeButton.setTitle("❤️", forState: UIControlState.Normal)
             photo.likes = photo.likes + 1
+            photo.liked = true
             number_of_likes.text = "\(self.photo.likes)"
-        } else {
-            likeButton.setTitle("💙", forState: UIControlState.Normal)
-            photo.likes = photo.likes - 1
-            number_of_likes.text = "\(self.photo.likes)"
-        }
-    }
+        }     }
     
     
 }
